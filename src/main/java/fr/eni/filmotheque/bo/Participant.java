@@ -1,8 +1,16 @@
 package fr.eni.filmotheque.bo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table (name = "PARTICIPANTS")
 public class Participant {
 
+	@Id
+	@GeneratedValue
 	private Integer id;
 
 	private String nom;

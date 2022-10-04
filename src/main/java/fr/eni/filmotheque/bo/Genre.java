@@ -1,11 +1,20 @@
 package fr.eni.filmotheque.bo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
-
+@Entity
+@Table (name = "GENRES")
 public class Genre {
 
+	@Id
+	@GeneratedValue
     private Integer id;
-    
+
+	
     private String libelle;
 
 

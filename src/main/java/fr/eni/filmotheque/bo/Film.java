@@ -5,33 +5,43 @@ package fr.eni.filmotheque.bo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table (name = "FILMS")
 public class Film {
 
+	@Id
+	@GeneratedValue
     private Integer id;
 
     @NotNull
     @NotBlank
     private String titre;
 
-    @NotNull
+    @Transient
     private int anneeSortie;
-    
+    @Transient
     private int duree;
     
     @Size(min = 20, max = 250)
+    @Transient
     private String synopsis;
 
-    @NotNull
+    @Transient
     private Participant realisateur;
-
+    @Transient
     private List<Participant> acteurs;
-
+    @Transient
     private Genre genre;
-
+    @Transient
     private List<Avis> avis;
 
 
@@ -52,10 +62,16 @@ public class Film {
 	public Film() {
 		this.acteurs = new ArrayList<>();
     }
+	
+	
+    public Film(@NotNull @NotBlank String titre, int anneeSortie, int duree) {
+		super();
+		this.titre = titre;
+		this.anneeSortie = anneeSortie;
+		this.duree = duree;
+	}
 
-
-
-    public void addActeur(Participant acteur) {
+	public void addActeur(Participant acteur) {
     	this.acteurs.add(acteur);
     }
     

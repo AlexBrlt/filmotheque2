@@ -10,7 +10,7 @@ import fr.eni.filmotheque.bo.Genre;
 import fr.eni.filmotheque.bo.Participant;
 
 @Service
-public class FilmsServiceImpl implements FilmsService{
+public class FilmsServiceImplTest implements FilmsService{
 
 	
 	Participant archainbaud = new Participant(0, "Wilder", "Billy");
@@ -34,41 +34,41 @@ public class FilmsServiceImpl implements FilmsService{
 
 	int compteurFilm = 2;
 	
-	@Override
-	public List<Film> getAllFilms() {
-		if(films==null) {
-			
-			
-			
-			Film someLikeItHot = new Film(0, "Some like it hot", 1939, archainbaud, 180, comedie, "bla bla bla");
-			someLikeItHot.addActeur(marylin);
-			someLikeItHot.addActeur(tony);
-			someLikeItHot.addActeur(jack);
-			
-			Film et = new Film(1, "ET", 1982, spielberg, 180, scienceFiction,"bla bla bla");
-			et.addActeur(patWelsh);
-			et.addActeur(iti);
-			
-			films = new ArrayList<Film>();
-			films.add(someLikeItHot);
-			films.add(et);
-			
-		}
-		
-		return films;
-	}
-
-	@Override
-	public Film getFilmById(int id) {
-		
-		for(Film f: films) {
-			if(f.getId()==id) {
-				return f;
-			}
-		}
-		
-		return null;
-	}
+//	@Override
+//	public List<Film> getAllFilms() {
+//		if(films==null) {
+//			
+//			
+//			
+//			Film someLikeItHot = new Film(0, "Some like it hot", 1939, archainbaud, 180, comedie, "bla bla bla");
+//			someLikeItHot.addActeur(marylin);
+//			someLikeItHot.addActeur(tony);
+//			someLikeItHot.addActeur(jack);
+//			
+//			Film et = new Film(1, "ET", 1982, spielberg, 180, scienceFiction,"bla bla bla");
+//			et.addActeur(patWelsh);
+//			et.addActeur(iti);
+//			
+//			films = new ArrayList<Film>();
+//			films.add(someLikeItHot);
+//			films.add(et);
+//			
+//		}
+//		
+//		return films;
+//	}
+//
+//	@Override
+//	public Film getFilmById(int id) {
+//		
+//		for(Film f: films) {
+//			if(f.getId()==id) {
+//				return f;
+//			}
+//		}
+//		
+//		return null;
+//	}
 
 	@Override
 	public List<Genre> getGenres() {
