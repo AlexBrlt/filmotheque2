@@ -39,8 +39,8 @@ public class Film {
     private Participant realisateur;
     @Transient
     private List<Participant> acteurs;
-    @Transient
-    private Genre genre;
+    
+    private ArrayList<Genre> genre;
     @Transient
     private List<Avis> avis;
 
@@ -53,7 +53,7 @@ public class Film {
 		this.anneeSortie = anneeSortie;
 		this.realisateur = realisateur;
 		this.duree = duree;
-		this.genre = genre;
+		this.genre = new ArrayList<Genre>();;
 		this.acteurs = new ArrayList<Participant>();
 		this.avis = new ArrayList<Avis>();
 		this.synopsis = synopsis;
@@ -64,11 +64,12 @@ public class Film {
     }
 	
 	
-    public Film(@NotNull @NotBlank String titre, int anneeSortie, int duree) {
+	public Film(@NotNull @NotBlank String titre, int anneeSortie, int duree, Genre genre) {
 		super();
 		this.titre = titre;
 		this.anneeSortie = anneeSortie;
 		this.duree = duree;
+		this.genre = new ArrayList<Genre>();
 	}
 
 	public void addActeur(Participant acteur) {
@@ -116,12 +117,12 @@ public class Film {
         this.acteurs = acteurs;
     }
 
-    public Genre getGenre() {
+    public List<Genre> getGenre() {
         return genre;
     }
 
-    public void setGenre(Genre genre) {
-        this.genre = genre;
+    public void setGenre(List<Genre> genre) {
+        this.genre = (ArrayList<Genre>) genre;
     }
 
     public List<Avis> getAvis() {

@@ -2,9 +2,12 @@ package fr.eni.filmotheque.services;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import fr.eni.filmotheque.bo.Film;
 import fr.eni.filmotheque.bo.Genre;
 import fr.eni.filmotheque.bo.Participant;
+
 
 public interface FilmsService {
 

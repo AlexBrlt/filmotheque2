@@ -18,6 +18,7 @@ import fr.eni.filmotheque.bo.Film;
 import fr.eni.filmotheque.bo.Participant;
 import fr.eni.filmotheque.services.FilmsService;
 
+
 @Controller
 public class FilmsController {
 	

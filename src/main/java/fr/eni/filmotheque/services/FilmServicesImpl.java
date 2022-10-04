@@ -2,23 +2,35 @@ package fr.eni.filmotheque.services;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import fr.eni.filmotheque.AvisRepository;
 import fr.eni.filmotheque.FilmRepository;
 import fr.eni.filmotheque.GenreRepository;
+import fr.eni.filmotheque.ParticipantRepository;
 import fr.eni.filmotheque.bo.Film;
 import fr.eni.filmotheque.bo.Genre;
 import fr.eni.filmotheque.bo.Participant;
 
+@Service
 public class FilmServicesImpl implements FilmsService {
 
+	private List<Film> films ;
 	private FilmRepository repository;
 	private GenreRepository gRepository;
+	private ParticipantRepository pRepository;
+	private AvisRepository aRepository;
+	
+	int compteurFilm = 2;
 	
 	
 	
-	public FilmServicesImpl(FilmRepository repository, GenreRepository gRepository) {
+	public FilmServicesImpl(FilmRepository repository, GenreRepository gRepository, ParticipantRepository pRepository, AvisRepository aRepository) {
 		super();
 		this.repository = repository;
 		this.gRepository = gRepository;
+		this.pRepository = pRepository;
+		this.aRepository = aRepository;
 	}
 
 	@Override
@@ -41,24 +53,25 @@ public class FilmServicesImpl implements FilmsService {
 	@Override
 	public List<Participant> getParticipants() {
 		// TODO Auto-generated method stub
-		return null;
+		return pRepository.findAll();
 	}
 
 	@Override
-	public Genre getGenreById(int genreId) {
+	public Genre getGenreById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return gRepository.findById(id).get();
 	}
 
 	@Override
-	public Participant getParticipantById(int idParticipant) {
+	public Participant getParticipantById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return pRepository.findById(id).get();
 	}
 
 	@Override
 	public void ajouterFilm(Film film) {
-		// TODO Auto-generated method stub
+		film.setId(compteurFilm++);
+		films.add(film);
 		
 	}
 
